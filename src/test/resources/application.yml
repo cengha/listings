@@ -1,0 +1,23 @@
+management:
+  endpoints:
+    web:
+      base-path: /internal
+
+spring:
+  datasource:
+    url: ${POSTGRES_URL:jdbc:postgresql://localhost:5432/listings}
+    username: ${POSTGRES_USER:listings}
+    password: ${POSTGRES_PASSWORD:listings}
+
+server:
+  ssl:
+    enabled: true
+    key-store: classpath:bff-tests.jks
+    key-store-password: test1234
+    key-alias: bff-tests
+
+logging:
+  level:
+    org:
+      springframework:
+        web: TRACE

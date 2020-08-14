@@ -1,0 +1,13 @@
+version: '3.1'
+
+services:
+  listings-db:
+    restart: always
+    image: postgres:10.6
+    environment:
+      POSTGRES_DB: listings
+      POSTGRES_USER: listings
+      POSTGRES_PASS: listings
+    ports:
+    - 5432:5432
+

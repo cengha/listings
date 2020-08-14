@@ -1,0 +1,14 @@
+management:
+  endpoints:
+    web:
+      base-path: /internal
+
+spring:
+  datasource:
+    url: ${POSTGRES_URL:jdbc:postgresql://localhost:5432/listings}
+    username: ${POSTGRES_USER:listings}
+    password: ${POSTGRES_PASSWORD:listings}
+
+server:
+  ssl:
+    enabled: false

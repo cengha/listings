@@ -1,0 +1,26 @@
+version: '3.1'
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    depends_on:
+    - listings-db
+    ports:
+    - 127.0.0.1:8080:8080
+    restart: unless-stopped
+    environment:
+      APP_NAME: listings
+      POSTGRES_URL: jdbc:postgresql://listings-db:5432/listings
+      POSTGRES_USER: listings
+      POSTGRES_PASSWORD: listings
+  listings-db:
+    restart: always
+    image: postgres:9.6.9
+    environment:
+      POSTGRES_DB: listings
+      POSTGRES_USER: listings
+      POSTGRES_PASS: listings
+    ports:
+    - 127.0.0.1:5432:5432
